@@ -29,7 +29,6 @@
       }
 
       &:hover {
-        border-color: red;
         position: relative;
         z-index: 1;
       }
