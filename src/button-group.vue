@@ -24,7 +24,9 @@
 
     > .g-button {
       border-radius: 0;
-      margin-left: -1px;
+      &:not(:first-child) {
+        margin-left: -1px;
+      }
 
       &:hover {
         border-color: red;
@@ -35,7 +37,6 @@
       &:first-child {
         border-top-left-radius: var(--border-radius);
         border-bottom-left-radius: var(--border-radius);
-        margin-left: 0;
       }
       &:last-child {
         border-top-right-radius: var(--border-radius);
