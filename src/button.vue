@@ -33,37 +33,28 @@
 
 <style lang="scss">
   @keyframes spin {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
+    0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}
   }
   .g-button {
-    font-size: var(--font-size);
-    height: var(--button-height);
-    padding: 0 1em;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
-    background: var(--button-bg);
+    font-size: var(--font-size); height: var(--button-height);
+    padding: 0 1em; border-radius: var(--border-radius);
+    border: 1px solid var(--border-color); background: var(--button-bg);
     display: inline-flex; justify-content: center; align-items: center;
     vertical-align: middle;
-    &:hover {
-      border-color: var(--border-color-hover);
-    }
-    &:active {
-      background-color: var(--button-active-bg);
-    }
-    &:focus {
-      outline: none;
-    }
+
+    &:hover {border-color: var(--border-color-hover);}
+    &:active {background-color: var(--button-active-bg);}
+    &:focus {outline: none;}
+
     > .content {order: 2;}
     > .icon {order: 1; margin-right: 6px;}
+
     &.icon-right {
       > .content {order: 1;}
       > .icon {order: 2; margin-left: 6px; margin-right: 0;}
     }
-    .loading {
-      margin-right: 6px;
-      animation: spin 1s infinite linear;
-    }
+
+    .loading {margin-right: 6px; animation: spin 1s infinite linear;}
   }
 
 </style>
