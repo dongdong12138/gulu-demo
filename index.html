@@ -61,7 +61,9 @@
 <!--  </div>-->
 
   <div class="box">
-    <g-input value="赵高" @change="inputChange"></g-input>
+    <g-input v-model="message"></g-input>
+    <p>{{ message }}</p>
+    <button @click="message += 1">click</button>
   </div>
 
 
