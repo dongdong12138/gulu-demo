@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/dongdong12138/gulu-demo#readme",
   "dependencies": {
+    "input": "^1.0.1",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3"
   },
