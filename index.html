@@ -50,14 +50,18 @@
     </g-button-group>
   </div>
 
-  <div class="box">
-    <g-input value="张三"></g-input>
-    <g-input value="李四" disabled></g-input>
-    <g-input value="王二麻子" readonly></g-input>
-  </div>
+<!--  <div class="box">-->
+<!--    <g-input value="张三"></g-input>-->
+<!--    <g-input value="李四" disabled></g-input>-->
+<!--    <g-input value="王二麻子" readonly></g-input>-->
+<!--  </div>-->
+
+<!--  <div class="box">-->
+<!--    <g-input value="赵高" error="姓名不能少于两个字"></g-input>-->
+<!--  </div>-->
 
   <div class="box">
-    <g-input value="赵高" error="姓名不能少于两个字"></g-input>
+    <g-input value="赵高" @change="inputChange"></g-input>
   </div>
 
 
