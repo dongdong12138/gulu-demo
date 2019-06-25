@@ -1,10 +1,11 @@
 <template>
-  <svg class="g-icon" aria-hidden="true">
+  <svg class="g-icon barry" aria-hidden="true">
     <use :xlink:href="`#i-${name}`"></use>
   </svg>
 </template>
 
 <script>
+  import './svg'
   export default {
     props: ['name']
   }
