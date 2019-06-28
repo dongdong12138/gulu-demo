@@ -12,20 +12,45 @@ describe('Row', () => {
     expect(Row).to.be.exist
   })
 
-  it('接受 gutter 属性', () => {
+  it('接受 gutter 属性', (done) => {
+    Vue.component('g-row', Row)
+    Vue.component('g-col', Col)
     const div = document.createElement('div')
     document.body.appendChild(div)
-    const RowConstructor = Vue.extend(Row)
-    const row = new RowConstructor({
-      propsData: {
-        gutter: 10
-      }
+    div.innerHTML = `
+      <g-row gutter="20">
+        <g-col span="12"></g-col>
+        <g-col span="12"></g-col>
+      </g-row>
+    `
+    const vm = new Vue({
+      el: div
     })
-    const ColConstructor = Vue.extend(Col)
-    const col = new ColConstructor()
-    col.$mount(row)
-    console.log(row.$el.outerHTML)
-    expect(1).to.eq(1)
-    row.$destroy()
+    setTimeout(() => {
+      const row = vm.$el.querySelector('.row')
+      expect(getComputedStyle(row).marginLeft).to.eq('-10px')
+      expect(getComputedStyle(row).marginRight).to.eq('-10px')
+
+      const cols = vm.$el.querySelectorAll('.col')
+      expect(getComputedStyle(cols[0]).paddingRight).to.eq('10px')
+      expect(getComputedStyle(cols[1]).paddingLeft).to.eq('10px')
+      done()
+      vm.$destroy()
+    }, 0)
+  })
+
+  it('接受 align 属性', () => {
+    const div = document.createElement('div')
+    document.body.appendChild(div)
+    const Constructor = Vue.extend(Row)
+    const vm = new Constructor({
+      propsData: {
+        align: 'center'
+      }
+    }).$mount(div)
+    const element = vm.$el
+    expect(getComputedStyle(element).justifyContent).to.equal('center')
+    div.remove()
+    vm.$destroy()
   })
 })
