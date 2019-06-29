@@ -37,11 +37,21 @@ var app = new Vue({
   },
   created() {
     this.$toast('我是 message', {
-      enableHtml: true
+      position: 'bottom',
+      enableHtml: true,
+      closeButton: {
+        text: '已充值',
+        callback() {
+          console.log('她说已经充值了')
+        }
+      },
+      autoClose: false,
+      autoCloseDelay: 3
     })
   },
   methods: {
     showToast () {
+
     }
   }
 })
