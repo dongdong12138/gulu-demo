@@ -36,22 +36,22 @@ var app = new Vue({
     message: 'hi'
   },
   created() {
-    this.$toast('我是 message', {
-      position: 'bottom',
-      enableHtml: true,
-      closeButton: {
-        text: '已充值',
-        callback() {
-          console.log('她说已经充值了')
-        }
-      },
-      autoClose: false,
-      autoCloseDelay: 3
-    })
+
   },
   methods: {
     showToast () {
-
+      this.$toast('我是 message', {
+        position: 'middle',
+        enableHtml: true,
+        closeButton: {
+          text: '已充值',
+          callback() {
+            console.log('她说已经充值了')
+          }
+        },
+        autoClose: false,
+        autoCloseDelay: 3
+      })
     }
   }
 })
