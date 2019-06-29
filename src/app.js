@@ -58,8 +58,7 @@ var app = new Vue({
             console.log('她说已经充值了')
           }
         },
-        autoClose: false,
-        autoCloseDelay: 3
+        autoClose: 3
       })
     }
   }
