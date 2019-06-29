@@ -41,7 +41,7 @@ var app = new Vue({
   methods: {
     showToast () {
       this.$toast('我是 message', {
-        position: 'middle',
+        position: 'bottom',
         enableHtml: true,
         closeButton: {
           text: '已充值',

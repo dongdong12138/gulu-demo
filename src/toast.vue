@@ -88,6 +88,14 @@
   $font-size: 14px;
   $toast-min-height: 40px;
   $toast-bg: rgba(0,0,0,0.75);
+  @keyframes fadeIn {
+    0% {opacity: 0; transform: translate(-50%, 100%);}
+    100% {opacity: 1; transform: translate(-50%, 0%);}
+  }
+  @keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+  }
 
   .toast {
     position: fixed;
@@ -102,6 +110,7 @@
     color: #fff;
     padding: 0 16px;
     border-radius: 4px;
+    animation: fadeIn 1s;
 
     > .message {
       padding: 8px 0;
@@ -124,6 +133,7 @@
     &.position-bottom {
       bottom: 0;
       transform: translateX(-50%);
+      animation: fadeIn 1s;
     }
     &.position-middle {
       top: 50%;
