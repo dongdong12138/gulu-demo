@@ -9,7 +9,6 @@
     name: 'GuluTabsBody',
     inject: ['eventBus'],
     created() {
-      console.log(this.eventBus)
     }
   }
 </script>
