@@ -12,10 +12,12 @@
   export default {
     name: 'GuluTabsHead',
     inject: ['eventBus'],
-    created() {
+    mounted() {
       this.eventBus.$on('update:selected', (item, vm) => {
-        console.log(item)
-        console.log(vm)
+        let {width, height, top, left} = vm.$el.getBoundingClientRect()
+        console.log(width, height, top, left)
+        this.$refs.line.style.width = `${width}px`
+        this.$refs.line.style.left = `${left}px`
       })
     }
   }
@@ -30,12 +32,11 @@
     justify-content: flex-start;
     position: relative;
 
-    >.line {
-      width: 100px;
+    > .line {
       position: absolute;
-      left: 0;
       bottom: 0;
       border-bottom: 1px solid $blue;
+      transition: all 350ms;
     }
 
     > .actions-wrapper {
