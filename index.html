@@ -2,6 +2,7 @@
 <html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
+  <base target="_blank">
   <title>轱辘</title>
   <style>
     * {
@@ -41,8 +42,11 @@
 
   <div class="box">
     <g-popover @click="yyy">
-      <template slot="content">
-        <div>popover 内容 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa hic in nobis nulla praesentium tempore tenetur. Aliquid, architecto autem commodi consequatur dignissimos dolorum minus placeat reprehenderit sequi vel voluptas voluptates.</div>
+      <template slot="content" slot-scope="{close}">
+        <div>
+          popover 内容 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa hic in nobis nulla praesentium tempore tenetur. Aliquid, architecto autem commodi consequatur dignissimos dolorum minus placeat reprehenderit sequi vel voluptas voluptates.
+          <g-button @click="close">关闭</g-button>
+        </div>
       </template>
       <g-button>click me</g-button>
     </g-popover>
@@ -63,7 +67,7 @@
 
     <g-popover position="right">
       <template slot="content">
-        <div>popover 内容 lorem</div>
+        <div>popover <a href="https://www.qq.com">看新闻</a> 内容 lorem</div>
       </template>
       <g-button>click me</g-button>
     </g-popover>
