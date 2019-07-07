@@ -39,33 +39,68 @@
 <body>
 <div id="app">
 
-  <g-popover @click="yyy">
-    <template slot="content">
-      <div>popover 内容 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa hic in nobis nulla praesentium tempore tenetur. Aliquid, architecto autem commodi consequatur dignissimos dolorum minus placeat reprehenderit sequi vel voluptas voluptates.</div>
-    </template>
-    <g-button>click me</g-button>
-  </g-popover>
+  <div class="box">
+    <g-popover @click="yyy">
+      <template slot="content">
+        <div>popover 内容 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa hic in nobis nulla praesentium tempore tenetur. Aliquid, architecto autem commodi consequatur dignissimos dolorum minus placeat reprehenderit sequi vel voluptas voluptates.</div>
+      </template>
+      <g-button>click me</g-button>
+    </g-popover>
 
-  <g-popover position="bottom">
-    <template slot="content">
-      <div>popover 内容</div>
-    </template>
-    <g-button>click me</g-button>
-  </g-popover>
+    <g-popover position="bottom">
+      <template slot="content">
+        <div>popover 内容</div>
+      </template>
+      <g-button>click me</g-button>
+    </g-popover>
 
-  <g-popover position="left">
-    <template slot="content">
-      <div>popover 内容</div>
-    </template>
-    <g-button>click me</g-button>
-  </g-popover>
+    <g-popover position="left">
+      <template slot="content">
+        <div>popover 内容</div>
+      </template>
+      <g-button>click me</g-button>
+    </g-popover>
 
-  <g-popover position="right">
-    <template slot="content">
-      <div>popover 内容 lorem</div>
-    </template>
-    <g-button>click me</g-button>
-  </g-popover>
+    <g-popover position="right">
+      <template slot="content">
+        <div>popover 内容 lorem</div>
+      </template>
+      <g-button>click me</g-button>
+    </g-popover>
+  </div>
+
+
+  <div class="box">
+    <g-popover @click="yyy" trigger="hover">
+      <template slot="content">
+        <div>popover 内容 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa hic in nobis nulla praesentium tempore tenetur. Aliquid, architecto autem commodi consequatur dignissimos dolorum minus placeat reprehenderit sequi vel voluptas voluptates.</div>
+      </template>
+      <g-button>click me</g-button>
+    </g-popover>
+
+    <g-popover position="bottom" trigger="hover">
+      <template slot="content">
+        <div>popover 内容</div>
+      </template>
+      <g-button>click me</g-button>
+    </g-popover>
+
+    <g-popover position="left" trigger="hover">
+      <template slot="content">
+        <div>popover 内容</div>
+      </template>
+      <g-button>click me</g-button>
+    </g-popover>
+
+    <g-popover position="right" trigger="hover">
+      <template slot="content">
+        <div>popover 内容 lorem</div>
+      </template>
+      <g-button>click me</g-button>
+    </g-popover>
+  </div>
+
+
 
 
 
