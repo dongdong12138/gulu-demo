@@ -1,6 +1,6 @@
 <template>
   <div class="popover" @click.stop="onClick" ref="popover">
-    <div ref="contentWrapper" class="content-wrapper" v-if="visible">
+    <div ref="contentWrapper" class="content-wrapper" v-if="visible" :class="{[`position-${position}`]: true}">
       <slot name="content"></slot>
     </div>
     <span ref="triggerWrapper" style="display: inline-block;">
@@ -17,12 +17,35 @@
         visible: false
       }
     },
+    props: {
+      position: {
+        type: String,
+        default: 'top',
+        validator(value) {
+          return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0
+        }
+      }
+    },
     methods: {
       positionContent() {
-        document.body.appendChild(this.$refs.contentWrapper)
-        let {width, height, top, left} = this.$refs.triggerWrapper.getBoundingClientRect()
-        this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-        this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
+        const {contentWrapper, triggerWrapper} = this.$refs
+        document.body.appendChild(contentWrapper)
+        let {width, height, top, left} = triggerWrapper.getBoundingClientRect()
+        if (this.position === 'top') {
+          contentWrapper.style.left = left + window.scrollX + 'px'
+          contentWrapper.style.top = top + window.scrollY + 'px'
+        } else if (this.position === 'bottom') {
+          contentWrapper.style.left = left + window.scrollX + 'px'
+          contentWrapper.style.top = top + height + window.scrollY + 'px'
+        } else if (this.position === 'left') {
+          contentWrapper.style.left = left + window.scrollX + 'px'
+          let {height: height2} = contentWrapper.getBoundingClientRect()
+          contentWrapper.style.top = top + window.scrollY + (height - height2) / 2 + 'px'
+        } else if (this.position === 'right') {
+          contentWrapper.style.left = left + window.scrollX + width + 'px'
+          let {height: height2} = contentWrapper.getBoundingClientRect()
+          contentWrapper.style.top = top + window.scrollY + (height - height2) / 2 + 'px'
+        }
       },
       onClickDocument(event) {
         if (this.$refs.popover && (this.$refs.popover === event.target || this.$refs.popover.contains(event.target))) {
@@ -64,7 +87,6 @@
     display: inline-block;
     vertical-align: top;
     position: relative;
-    margin: 10px 0 0 10px;
   }
 
   .content-wrapper {
@@ -73,11 +95,10 @@
     position: absolute;
     filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
     background: #fff;
-    transform: translateY(-100%);
     border: 1px solid $border-color;
     border-radius: $border-radius;
-    margin-top: -10px;
     padding: .5em 1em;
+
     &::before, &::after {
       content: "";
       display: block;
@@ -85,15 +106,71 @@
       width: 0;
       height: 0;
       position: absolute;
-      left: 10px;
     }
-    &::before {
-      border-top-color: #000;
-      top: 100%;
+
+    &.position-top {
+      transform: translateY(-100%);
+      margin-top: -10px;
+      &::before, &::after {
+        left: 10px;
+      }
+      &::before {
+        border-top-color: #000;
+        top: 100%;
+      }
+      &::after {
+        border-top-color: #fff;
+        top: calc(100% - 1px);
+      }
     }
-    &::after {
-      border-top-color: #fff;
-      top: calc(100% - 1px);
+
+    &.position-bottom {
+      margin-top: 10px;
+      &::before, &::after {
+        left: 10px;
+      }
+      &::before {
+        border-bottom-color: #000;
+        bottom: 100%;
+      }
+      &::after {
+        border-bottom-color: #fff;
+        bottom: calc(100% - 1px);
+      }
     }
+
+    &.position-left {
+      transform: translateX(-100%);
+      margin-left: -10px;
+      &::before, &::after {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &::before {
+        left: 100%;
+        border-left-color: #000;
+      }
+      &::after {
+        left: calc(100% - 1px);
+        border-left-color: #fff;
+      }
+    }
+
+    &.position-right {
+      margin-left: 10px;
+      &::before, &::after {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &::before {
+        right: 100%;
+        border-right-color: #000;
+      }
+      &::after {
+        right: calc(100% - 1px);
+        border-right-color: #fff;
+      }
+    }
+
   }
 </style>
