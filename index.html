@@ -25,11 +25,10 @@
     }
 
     #app {
-      /*margin: 20px;*/
+      margin: 250px;
     }
     body {
       font-size: var(--font-size);
-      border: 1px solid red;
     }
 
     .box {
@@ -38,20 +37,20 @@
   </style>
 </head>
 <body>
-<div id="app" style="padding: 100px 0 0 100px;">
+<div id="app">
 
   <g-popover @click="yyy">
     <template slot="content">
-      <div>popover 内容</div>
+      <div>popover 内容 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa hic in nobis nulla praesentium tempore tenetur. Aliquid, architecto autem commodi consequatur dignissimos dolorum minus placeat reprehenderit sequi vel voluptas voluptates.</div>
     </template>
-    <button>click me</button>
+    <g-button>click me</g-button>
   </g-popover>
 
   <g-popover>
     <template slot="content">
       <div>popover 内容</div>
     </template>
-    <button>click me</button>
+    <g-button>click me</g-button>
   </g-popover>
 
 
