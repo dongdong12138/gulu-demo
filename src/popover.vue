@@ -25,6 +25,8 @@
         this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
       },
       onClickDocument(event) {
+        console.log(event.target)
+        console.log(this.$refs.popover)
         if (this.$refs.popover && (this.$refs.popover === event.target || this.$refs.popover.contains(event.target))) {
           return
         }
