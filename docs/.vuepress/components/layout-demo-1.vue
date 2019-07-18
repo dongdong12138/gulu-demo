@@ -1,6 +1,6 @@
 <template>
   <div style="padding-top: 16px;">
-    <h2>布局</h2>
+    <h2>常见布局</h2>
     <p><strong>预览</strong></p>
 
     <g-layout style="color: #000; margin-bottom:50px;">
